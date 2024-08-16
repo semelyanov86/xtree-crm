@@ -64,6 +64,8 @@ jobs:
             sudo mv /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm_previous
             sudo rm /var/www/vtigercrm/vtigercrm
             sudo ln -snf /var/www/vtigercrm/vtigercrm_previous /var/www/vtigercrm/vtigercrm
+            sudo mkdir /var/www/vtigercrm/vtigercrm_new
+            sudo chown -R sergeyem /var/www/vtigercrm/vtigercrm_new
 
       - name: Copy files via SCP
         uses: appleboy/scp-action@v0.1.4
@@ -84,6 +86,8 @@ jobs:
           port: 22
           script: |
             sudo cp /var/www/vtigercrm/vtigercrm_previous/.env /var/www/vtigercrm/vtigercrm_new/.env
+            sudo chown -R www-data /var/www/vtigercrm/vtigercrm_new
+            sudo chgrp -R www-data /var/www/vtigercrm/vtigercrm_new
             sudo cd /var/www/vtigercrm/vtigercrm_new
             sudo mv /var/www/vtigercrm/vtigercrm_previous/storage /var/www/vtigercrm/vtigercrm_new/storage
             sudo mv /var/www/vtigercrm/vtigercrm_previous/logs /var/www/vtigercrm/vtigercrm_new/logs
