@@ -88,7 +88,7 @@ jobs:
             sudo cp /var/www/vtigercrm/vtigercrm_previous/.env /var/www/vtigercrm/vtigercrm_new/.env
             sudo chown -R www-data /var/www/vtigercrm/vtigercrm_new
             sudo chgrp -R www-data /var/www/vtigercrm/vtigercrm_new
-            sudo cd /var/www/vtigercrm/vtigercrm_new
+            cd /var/www/vtigercrm/vtigercrm_new
             sudo mv /var/www/vtigercrm/vtigercrm_previous/storage /var/www/vtigercrm/vtigercrm_new/storage
             sudo mv /var/www/vtigercrm/vtigercrm_previous/logs /var/www/vtigercrm/vtigercrm_new/logs
             sudo mv /var/www/vtigercrm/vtigercrm_previous/user_privileges /var/www/vtigercrm/vtigercrm_new/user_privileges
