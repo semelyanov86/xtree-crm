@@ -51,7 +51,6 @@ jobs:
         run: |
           sudo chmod -R 777 cache test/vtlib
           sudo chmod a+rw config.inc.php
-          sudo chmod 755 cron/vtiger_backup.sh
 
       - name: Clear old build
         uses: appleboy/ssh-action@master
