@@ -6,9 +6,9 @@
  * The Initial Developer of the Original Code is vtiger.
  * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
- *************************************************************************************/
+ */
 
-$languageStrings = array(
+$languageStrings = [
     'FieldAutofill' => 'Field Autofill',
     'LBL_SELECT_MODULE' => 'Select the module',
     'LBL_SELECT_OPTION' => 'Select an Option',
@@ -59,6 +59,6 @@ $languageStrings = array(
     'LBL_HAS_BEEN_SUCCESSFULLY' => 'has been installed & activated successfully!',
     'LBL_MORE_EXTENSIONS' => 'For more vTiger Extensions, please visit our website',
     /* For License page - End */
-);
+];
 
-$jsLanguageStrings = array();
+$jsLanguageStrings = [];

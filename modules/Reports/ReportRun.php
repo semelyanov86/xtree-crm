@@ -4475,7 +4475,7 @@ class ReportRun extends CRMEntity
             }
             array_shift($labelInfo);
             $fieldLabel = decode_html(implode('_', $labelInfo));
-            $rep_header_temp = preg_replace('/\\s+/', '_', $fieldLabel);
+            $rep_header_temp = preg_replace('/\s+/', '_', $fieldLabel);
             $rep_header = "{$rep_module} {$fieldLabel}";
         }
         $curr_symb = '';

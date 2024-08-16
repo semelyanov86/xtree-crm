@@ -1,18 +1,18 @@
 <?php
 
-$languageStrings = array(
-	'VTEItems'=>'Items',
-	'SINGLE_VTEItems'=>'Item',
-	'LBL_QUOTES_ITEM_DETAIL'=>'Quote Item Detail',
-	'LBL_INVOICE_ITEM_DETAIL'=>'Invoice Item Detail',
-	'LBL_SALESORDER_ITEM_DETAIL'=>'Sales Order Item Detail',
-	'LBL_PUCHASEORDER_ITEM_DETAIL'=>'Puschase Order Item Detail',
-	'Related to'=>'Related to',
-	'VAT'=>'VAT',
-	'Sales'=>'Sales',
-	'Image'=>'Image',
-	'Margin'=>'Margin',
-	'Purchase Cost'=>'Purchase Cost',
+$languageStrings = [
+    'VTEItems' => 'Items',
+    'SINGLE_VTEItems' => 'Item',
+    'LBL_QUOTES_ITEM_DETAIL' => 'Quote Item Detail',
+    'LBL_INVOICE_ITEM_DETAIL' => 'Invoice Item Detail',
+    'LBL_SALESORDER_ITEM_DETAIL' => 'Sales Order Item Detail',
+    'LBL_PUCHASEORDER_ITEM_DETAIL' => 'Puschase Order Item Detail',
+    'Related to' => 'Related to',
+    'VAT' => 'VAT',
+    'Sales' => 'Sales',
+    'Image' => 'Image',
+    'Margin' => 'Margin',
+    'Purchase Cost' => 'Purchase Cost',
     /* For License page - Begin */
     'MODULE_LBL' => 'Quoter',
     'LBL_REQUIREMENTS' => 'Requirements',
@@ -55,8 +55,6 @@ $languageStrings = array(
     'LBL_HAS_BEEN_SUCCESSFULLY' => 'has been installed & activated successfully!',
     'LBL_MORE_EXTENSIONS' => 'For more vTiger Extensions, please visit our website',
     /* For License page - End */
+];
 
-
-);
-
-$jsLanguageStrings = array();
+$jsLanguageStrings = [];

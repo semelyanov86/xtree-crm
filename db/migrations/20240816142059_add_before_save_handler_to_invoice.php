@@ -11,7 +11,7 @@ final class AddBeforeSaveHandlerToInvoice extends AbstractMigration
         include_once 'include/events/VTEventsManager.inc';
         global $adb;
         $em = new VTEventsManager($adb);
-        $em->setModuleForHandler('Invoice', "InvoiceBeforeSaveHandler.php");
-        $em->registerHandler('vtiger.entity.beforesave', "modules/Invoice/InvoiceBeforeSaveHandler.php", "InvoiceBeforeSaveHandler");
+        $em->setModuleForHandler('Invoice', 'InvoiceBeforeSaveHandler.php');
+        $em->registerHandler('vtiger.entity.beforesave', 'modules/Invoice/InvoiceBeforeSaveHandler.php', 'InvoiceBeforeSaveHandler');
     }
 }

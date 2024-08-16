@@ -22,11 +22,12 @@ class Invoice_Record_Model extends Inventory_Record_Model
 
     public function isEditable(): bool
     {
-         $res = parent::isEditable();
-         if (!$res) {
-             return $res;
-         }
-         $service = new Invoice_CheckPermission_Service($this->getId());
-         return $service->isEditAllowed();
+        $res = parent::isEditable();
+        if (!$res) {
+            return $res;
+        }
+        $service = new Invoice_CheckPermission_Service($this->getId());
+
+        return $service->isEditAllowed();
     }
 }

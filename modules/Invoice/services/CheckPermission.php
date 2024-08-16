@@ -1,13 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 final class Invoice_CheckPermission_Service
 {
     public function __construct(
         protected ?int $invoiceId,
-    )
-    {
-    }
+    ) {}
 
     public function isEditAllowed(): bool
     {
@@ -26,9 +25,10 @@ final class Invoice_CheckPermission_Service
         if (!$date) {
             $date = $invoiceModel->get('createdtime');
         }
+
         try {
-            $providedDate = new DateTime($date);
-            $currentDate = new DateTime();
+            $providedDate = new DateTimeImmutable($date);
+            $currentDate = new DateTimeImmutable();
 
             // Compare the month and year of the provided date with the current date
             return $providedDate->format('Y-m') === $currentDate->format('Y-m');

@@ -50,6 +50,7 @@ class Invoice_DetailView_Model extends Inventory_DetailView_Model
                 unset($linkModelList['DETAILVIEWBASIC'][$key]);
             }
         }
+
         return $linkModelList;
     }
 }

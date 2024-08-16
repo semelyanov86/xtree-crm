@@ -1,8 +1,8 @@
 <?php
 
-include_once "vtlib/Vtiger/Field.php";
+include_once 'vtlib/Vtiger/Field.php';
 /**
- * Vtiger Field Model Class
+ * Vtiger Field Model Class.
  */
 class VTEItems_Field_Model extends Vtiger_Field_Model
 {
@@ -11,5 +11,3 @@ class VTEItems_Field_Model extends Vtiger_Field_Model
         return false;
     }
 }
-
-?>

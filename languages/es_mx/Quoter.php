@@ -6,9 +6,9 @@
  * The Initial Developer of the Original Code is vtiger.
  * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
- *************************************************************************************/
+ */
 
-$languageStrings = array(
+$languageStrings = [
     'Quoter' => 'Quoter',
     'Item Details Customizer (Advanced)' => 'Item Details Customizer (Advanced)',
     'LBL_PRODUCT' => 'Product',
@@ -35,33 +35,33 @@ $languageStrings = array(
     'LBL_ADD_NEW_FIELD' => 'Add New Field',
     'LBL_ADD_ITEM' => 'Add Item',
     'LBL_ITEMS' => 'Items',
-	'LBL_TOTALS'=>'Totals',
-    'LBL_ADD_NEW_FIELD'=>'Add New Field',
-    'LBL_ADD_ITEM'=>'Add Item',
-    'LBL_ITEMS'=>'Items',
-    'LBL_TOOLS'=>'Tools',
-    'LBL_LABEL_FIELD'=>'Label Field',
-    'LBL_DATA_ENTRY'=>'Data Entry',
-    'LBL_SECTIONS'=>'Sections',
-    'LBL_ADD_NEW_VALUE'=>'Add new value',
-    'LBL_SELECT_OPTIONS'=>'Select Options',
-    'LBL_RUNNING_SUBTOTAL'=>'Running SubTotal',
+    'LBL_TOTALS' => 'Totals',
+    'LBL_ADD_NEW_FIELD' => 'Add New Field',
+    'LBL_ADD_ITEM' => 'Add Item',
+    'LBL_ITEMS' => 'Items',
+    'LBL_TOOLS' => 'Tools',
+    'LBL_LABEL_FIELD' => 'Label Field',
+    'LBL_DATA_ENTRY' => 'Data Entry',
+    'LBL_SECTIONS' => 'Sections',
+    'LBL_ADD_NEW_VALUE' => 'Add new value',
+    'LBL_SELECT_OPTIONS' => 'Select Options',
+    'LBL_RUNNING_SUBTOTAL' => 'Running SubTotal',
 
-    //Total labels
-    'LBL_ITEMS_TOTAL' =>'Items Total',
-    'LBL_TOTAL_DISCOUNT_PERCENT' =>'Discount (%)',
+    // Total labels
+    'LBL_ITEMS_TOTAL' => 'Items Total',
+    'LBL_TOTAL_DISCOUNT_PERCENT' => 'Discount (%)',
     'Discount Percent (%)' => 'Discount (%)',
-    'LBL_TOTAL_DISCOUNT_AMOUNT' =>'Discount Amount',
-    'LBL_SHIPPING_HANDLING_CHARGES' =>'Shipping & Handling Charges',
-    'LBL_PRE_TAX_TOTAL' =>'Pre Tax Total',
-    'LBL_TAX' =>'Tax (%)',
-    'LBL_TAXES_FOR_SHIPPING_AND_HANDLING' =>'Taxes For Shipping and Handling (%)',
-    'LBL_ADJUSTMENT' =>'Adjustment',
-    'LBL_GRAND_TOTAL' =>'Grand Total',
-    'LBL_RECEIVED' =>'Received',
-    'LBL_PAID' =>'Paid',
-    'LBL_BALANCE' =>'Balance',
-    'Running' =>'Running',
+    'LBL_TOTAL_DISCOUNT_AMOUNT' => 'Discount Amount',
+    'LBL_SHIPPING_HANDLING_CHARGES' => 'Shipping & Handling Charges',
+    'LBL_PRE_TAX_TOTAL' => 'Pre Tax Total',
+    'LBL_TAX' => 'Tax (%)',
+    'LBL_TAXES_FOR_SHIPPING_AND_HANDLING' => 'Taxes For Shipping and Handling (%)',
+    'LBL_ADJUSTMENT' => 'Adjustment',
+    'LBL_GRAND_TOTAL' => 'Grand Total',
+    'LBL_RECEIVED' => 'Received',
+    'LBL_PAID' => 'Paid',
+    'LBL_BALANCE' => 'Balance',
+    'Running' => 'Running',
 
     /* For License page - Begin */
     'MODULE_LBL' => 'Quoter',
@@ -105,8 +105,6 @@ $languageStrings = array(
     'LBL_HAS_BEEN_SUCCESSFULLY' => 'has been installed & activated successfully!',
     'LBL_MORE_EXTENSIONS' => 'For more vTiger Extensions, please visit our website',
     /* For License page - End */
+];
 
-
-);
-
-$jsLanguageStrings = array();
+$jsLanguageStrings = [];

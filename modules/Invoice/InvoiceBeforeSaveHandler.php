@@ -16,7 +16,6 @@ final class InvoiceBeforeSaveHandler extends VTEventHandler
     /**
      * @param non-empty-string $eventName
      * @param VTEntityData $entityData
-     * @return void
      * @throws AppException
      */
     public function handleEvent($eventName, $entityData)
