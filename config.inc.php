@@ -192,4 +192,6 @@ $default_layout = 'v7';
 // Maximum Listview Fields Selection Size
 $maxListFieldsSelectionSize = 15;
 
+$potentialsTotalLimit = getenv('POTENTIALS_TOTAL_LIMIT');
+
 include_once 'config.security.php';
