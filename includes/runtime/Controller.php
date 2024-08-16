@@ -125,6 +125,9 @@ abstract class Vtiger_Action_Controller extends Vtiger_Controller
     public function checkPermission(Vtiger_Request $request)
     {
         $permissions = $this->requiresPermission($request);
+        if (array_key_exists('module_parameter', $permissions)) {
+            $permissions = [$permissions];
+        }
         foreach ($permissions as $permission) {
             if (array_key_exists('module_parameter', $permission)) {
                 if ($request->has($permission['module_parameter']) && !empty($request->get($permission['module_parameter']))) {
