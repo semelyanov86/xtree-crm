@@ -26,7 +26,7 @@ class Vtiger_Base_Model
 
     /**
      * Function to get the value for a given key.
-     * @return Value for the given key
+     * @return string|int|float for the given key
      */
     public function get($key)
     {

@@ -483,7 +483,7 @@ class Vtiger_Record_Model extends Vtiger_Base_Model
 
     /**
      * Function to get details for user have the permissions to do actions.
-     * @return <Boolean> - true/false
+     * @return bool - true/false
      */
     public function isEditable()
     {

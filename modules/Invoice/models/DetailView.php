@@ -28,6 +28,28 @@ class Invoice_DetailView_Model extends Inventory_DetailView_Model
             $linkModelList['DETAILVIEW'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
         }
 
+        return $this->filterDetailViewLinks($linkModelList);
+    }
+
+    /**
+     * @param  array{DETAILVIEWBASIC: Vtiger_Link_Model[], DETAILVIEW: Vtiger_Link_Model[], DETAILVIEWTAB: Vtiger_Link_Model[], DETAILVIEWRELATED: Vtiger_Link_Model[], DETAILVIEWWIDGET: Vtiger_Link_Model[], DETAILVIEWSETTING: Vtiger_Link_Model[]}  $linkModelList
+     * @return array{DETAILVIEWBASIC: Vtiger_Link_Model[], DETAILVIEW: Vtiger_Link_Model[], DETAILVIEWTAB: Vtiger_Link_Model[], DETAILVIEWRELATED: Vtiger_Link_Model[], DETAILVIEWWIDGET: Vtiger_Link_Model[], DETAILVIEWSETTING: Vtiger_Link_Model[]}
+     */
+    protected function filterDetailViewLinks(array $linkModelList): array
+    {
+        $record = $this->getRecord();
+        if (!$record) {
+            return $linkModelList;
+        }
+        $service = new Invoice_CheckPermission_Service((int) $record->getId());
+        if ($service->isEditAllowed()) {
+            return $linkModelList;
+        }
+        foreach ($linkModelList['DETAILVIEWBASIC'] as $key => $item) {
+            if ($item->linklabel === 'LBL_EDIT') {
+                unset($linkModelList['DETAILVIEWBASIC'][$key]);
+            }
+        }
         return $linkModelList;
     }
 }

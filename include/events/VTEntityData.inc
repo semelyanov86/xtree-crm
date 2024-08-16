@@ -108,7 +108,7 @@ class VTEntityData{
 	/**
 	 * Get the entity id.
 	 *
-	 * @return The entity id.
+	 * @return int|string
 	 */
 	function getId(){
 		return $this->focus->id;

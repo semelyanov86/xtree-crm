@@ -19,4 +19,14 @@ class Invoice_Record_Model extends Inventory_Record_Model
 
         return 'index.php?module=' . $purchaseOrderModuleModel->getName() . '&view=' . $purchaseOrderModuleModel->getEditViewName() . '&invoice_id=' . $this->getId();
     }
+
+    public function isEditable(): bool
+    {
+         $res = parent::isEditable();
+         if (!$res) {
+             return $res;
+         }
+         $service = new Invoice_CheckPermission_Service($this->getId());
+         return $service->isEditAllowed();
+    }
 }

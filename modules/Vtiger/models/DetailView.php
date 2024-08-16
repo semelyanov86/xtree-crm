@@ -54,7 +54,7 @@ class Vtiger_DetailView_Model extends Vtiger_Base_Model
 
     /**
      * Function to get the Record model.
-     * @return <Vtiger_Record_Model>
+     * @return Vtiger_Record_Model|false
      */
     public function getRecord()
     {
