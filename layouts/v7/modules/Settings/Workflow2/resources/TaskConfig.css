@@ -1,0 +1,100 @@
+html, body {
+    background-color:#ffffff;
+    height: 100%;
+    overflow: auto;
+}
+
+div#fixedHeader {
+    position: fixed;
+
+    top:0px;
+    left:0px;
+    right:0;
+    padding-right:30px;
+    padding-top:10px;
+    border-left:10px solid #eeeff2;
+
+    z-index: 100;
+}
+table#ConfigHeadline {
+    background-color: #ffffff;
+    border-bottom:1px solid #eeeff2;
+    border-top:1px solid #eeeff2;
+}
+div.TaskConfigContainer {
+    padding-top: 50px;
+}
+.vtFooter p a,
+.vtFooter p {
+    background-color:#eeeff2;
+    color: #000;
+}
+table.tableHeading {
+    border-bottom: 1px solid #eeeff2;
+    margin-bottom:5px;
+}
+div.blockContainer p.title {
+    font-weight:bold;
+}
+
+.formContainer input, .formContainer select {
+    margin-bottom:0px;
+}
+body {
+    overflow:scroll;
+    position:static !important;
+}
+.SimpleConfigContainer {
+    display:inline-block;
+    width:100%;
+}
+.SimpleConfigContainer input, .SimpleConfigContainer select {
+    margin-bottom:0;
+}
+.SCFieldIntern {
+    display:flex;
+    width:100%;
+}
+.SCMode .SCDescription {
+    width:100%;
+    display:block;
+}
+.SCMode_default .SimpleConfigCustomContainer {
+    display:none;
+}
+.SCMode_custom .SimpleConfigDefaultContainer {
+    display:none;
+}
+.SimpleConfigRepeatField {
+    visibility: hidden;
+}
+.SCFieldIntern:first-of-type .SimpleConfigRepeatField {
+    visibility: visible;
+}
+.SwitchSimpleConfigSwitch {
+    float:right;
+}
+.SCSingleFieldWidth {
+    width:99%;
+}
+.SCDescription {
+
+}
+.SCLabel {
+    width:20%;
+}
+#page {
+    margin-right:0 !important;
+    padding-top:0;
+}
+.RecordStatus {
+    background-color:#6699cc;
+    width:100%;
+}
+.RecordStatus.Active, .RecordStatus.Empty {
+    background-color:#6699cc;
+}
+.RecordStatus {
+    background-color:#aaaaaa;
+    color:#000;
+}

@@ -1,0 +1,104 @@
+name: Continuous Integration and Deployment
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Setup Vtiger
+        run: |
+          cp .env.example .env
+
+      - name: Composer Lint
+        run: php phplint.phar
+
+      - name: Composer Validate
+        run: composer validate --no-check-all --strict
+
+  deploy:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-dev --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Permission setup
+        run: |
+          chmod -R 777 cache test/vtlib
+          chmod a+rw config.inc.php
+          chmod 755 cron/vtiger_backup.sh
+
+      - name: Clear old build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: |
+            rm -rf /var/www/vtigercrm/vtigercrm_previous
+            mv /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm_previous
+            rm /var/www/vtigercrm/vtigercrm
+            ln -snf /var/www/vtigercrm/vtigercrm_previous /var/www/vtigercrm/vtigercrm
+
+      - name: Copy files via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: "./"
+          target: "/var/www/vtigercrm/vtigercrm_new"
+
+      - name: Run vtiger commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: |
+            cp /var/www/vtigercrm/vtigercrm_previous/.env /var/www/vtigercrm/vtigercrm_new/.env
+            cd /var/www/vtigercrm/vtigercrm_new
+            mv /var/www/vtigercrm/vtigercrm_previous/storage /var/www/vtigercrm/vtigercrm_new/storage
+            mv /var/www/vtigercrm/vtigercrm_previous/logs /var/www/vtigercrm/vtigercrm_new/logs
+            mv /var/www/vtigercrm/vtigercrm_previous/user_privileges /var/www/vtigercrm/vtigercrm_new/user_privileges
+            cp /var/www/vtigercrm/vtigercrm_previous/tabdata.php /var/www/vtigercrm/vtigercrm_new/tabdata.php
+            cp /var/www/vtigercrm/vtigercrm_previous/parent_tabdata.php /var/www/vtigercrm/vtigercrm_new/parent_tabdata.php
+            mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c
+            mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c/v7
+            chmod -R 777 /var/www/vtigercrm/vtigercrm_new/test/templates_c
+            chown -R www-data /var/www/vtigercrm/vtigercrm_new
+            chgrp -R www-data /var/www/vtigercrm/vtigercrm_new
+            rm /var/www/vtigercrm/vtigercrm
+            ln -snf /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm
+            rm -rf /var/www/vtigercrm/vtigercrm_previous
+            chmod -R 777 /var/www/vtigercrm/vtigercrm_new/user_privileges
+            task migrate

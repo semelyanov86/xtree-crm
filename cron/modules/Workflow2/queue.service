@@ -1,0 +1,2 @@
+<?php
+require_once("modules/Workflow2/cronjobHandler.php");

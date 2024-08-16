@@ -1,0 +1,142 @@
+.materialstyle {
+  /* form starting stylings ------------------------------- */
+  /* LABEL ======================================= */
+  /* active state */
+  /* BOTTOM BARS ================================= */
+  /* active state */
+  /* HIGHLIGHTER ================================== */
+  /*  .highlight {
+      position:absolute;
+      height:60%;
+      width:100px;
+      top:25%;
+      left:0;
+      pointer-events:none;
+      opacity:0.5;
+
+      background-color:transparent;
+      border:none;
+    }
+  */
+}
+.materialstyle.group {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.materialstyle.group.WithDescription {
+  margin-bottom: 30px;
+}
+.materialstyle.prefix-icon .fa {
+  position: absolute;
+  top: 8px;
+  font-size: 14px;
+}
+.materialstyle.prefix-icon label {
+  left: 19px;
+}
+.materialstyle.prefix-icon input {
+  padding-left: 20px;
+}
+.materialstyle input {
+  font-size: 14px;
+  padding: 10px 10px 10px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  height: 30px;
+  border-bottom: 1px solid #757575;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow:none !important;
+}
+.materialstyle input[type="file"] {
+  border-bottom:none !important;
+  padding:5px 0;
+}
+.materialstyle select {
+  font-size: 14px;
+  padding: 5px 10px 5px 0px;
+  display: block;
+  width: 100%;
+  border: none;
+  height: 38px;
+  border-bottom: 1px solid #757575;
+}
+.materialstyle textarea {
+  font-size: 14px;
+  padding: 3px 5px;
+  display: block;
+  width: 100%;
+  height: 150px;
+  border: 1px solid #757575;
+}
+.materialstyle .select2-container {
+  width: 100%;
+}
+.materialstyle .select2-container .select2-choices .select2-search-field input,
+.materialstyle .select2-container .select2-choice,
+.materialstyle .select2-container .select2-choices {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.materialstyle .materialFocus,
+.materialstyle input:focus,
+.materialstyle select:focus,
+.materialstyle textarea:focus {
+  outline: none;
+}
+.materialstyle label {
+  color: #bbb;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.materialstyle.FixedUsed > label,
+.materialstyle .materialUsed ~ label,
+.materialstyle .materialFocus ~ label,
+.materialstyle input:focus ~ label,
+.materialstyle input.used ~ label,
+.materialstyle select:focus ~ label,
+.materialstyle select.used ~ label,
+.materialstyle textarea:focus ~ label,
+.materialstyle textarea.used ~ label {
+  top: -18px;
+  left: 0;
+  font-size: 12px;
+  color: #5264AE;
+}
+.materialstyle .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.materialstyle .bar:before,
+.materialstyle .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.materialstyle .bar:before {
+  left: 50%;
+}
+.materialstyle .bar:after {
+  right: 50%;
+}
+.materialstyle input:focus ~ .bar:before,
+.materialstyle input:focus ~ .bar:after {
+  width: 50%;
+}

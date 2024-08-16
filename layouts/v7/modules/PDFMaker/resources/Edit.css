@@ -1,0 +1,93 @@
+.cke_autocomplete_panel {
+    width: 400px;
+}
+.middle-block {
+    width: 70%;
+}
+.relatedmodulefields {
+    border-left: 2px solid #ffcc66;
+}
+
+.modulefields {
+    border-left: 2px solid #3399ff;
+}
+.acc_info{
+    border-left: 2px solid #99ff66;
+}
+.user_info {
+    border-left: 2px solid #F2B4FF;
+}
+.logged_user_info {
+    border-left: 2px solid #90C9FF;
+}
+.modifiedby_user_info {
+    border-left: 2px solid #FFDA3D;
+}
+.smcreator_user_info {
+    border-left: 2px solid #FF8A3D;
+}
+.titleAC {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#ContentEditorTabs {
+    margin: 0 0 5px 0;
+}
+.mainContent.row {
+    margin: 0;
+}
+.PDFMakerContentBlock.row {
+    white-space: nowrap;
+    padding: 10px 15px 10px 0;
+    margin: 0 0 50px 0;
+}
+.PDFMakerLeftBlock {
+    white-space: normal;
+    width: 30%;
+    padding: 0;
+}
+.PDFMakerMiddleBlock {
+    white-space: normal;
+    padding: 0;
+    width: 70%;
+    margin: 0;
+}
+.PDFMakerLeftBlock .fieldLabel {
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ':';
+    padding-right: 0;
+}
+.PDFMakerMiddleBlock_content, .pdfContentEdit {
+    padding: 0 0 15px 15px;
+}
+
+.hideLeftBar .PDFMakerLeftBlock {
+    display: none;
+}
+.hideLeftBar .PDFMakerMiddleBlock {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+.modal-overlay-footer {
+    left: -45px;
+}
+.PDFMakerToggleLeftBlock {
+    font-size: 20px;
+    line-height: 39px;
+}
+.edit-template-content {
+    width: 100%;
+}
+
+footer.app-footer {
+    display: none;
+}
+#properties_div .table {
+    margin-bottom: 0;
+}
+.select2-chosen {
+    max-width: 220px;
+}

@@ -1,0 +1,36 @@
+Traced on 2024-05-24 08:03:07
+FileAccessForInclusion - 
+/var/www/vtigercrm/vtigercrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/var/www/vtigercrm/vtigercrm/data/CRMEntity.php::checkFileAccessForInclusion::57<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/Utils.php::getInstance::214<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerCRMObjectMeta.php::vtws_getModuleInstance::42<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerModuleOperation.php::__construct::31<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerModuleOperation.php::getMetaInstance::19<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/Utils.php::__construct::462<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/QueryGenerator.php::vtws_getModuleHandlerFromName::96<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/QueryGenerator.php::getMeta::72<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/EnhancedQueryGenerator.php::__construct::16<br>
+/var/www/vtigercrm/vtigercrm/modules/Vtiger/models/ListView.php::__construct::373<br>
+/var/www/vtigercrm/vtigercrm/modules/Vtiger/views/List.php::getInstance::57<br>
+/var/www/vtigercrm/vtigercrm/includes/main/WebUI.php::preProcess::76<br>
+/var/www/vtigercrm/vtigercrm/includes/main/WebUI.php::triggerPreProcess::214<br>
+/var/www/vtigercrm/vtigercrm/index.php::process::26<br>
+
+Traced on 2024-05-24 08:04:45
+FileAccessForInclusion - 
+/var/www/vtigercrm/vtigercrm/include/utils/CommonUtils.php::checkFileAccessForInclusion::388<br>
+/var/www/vtigercrm/vtigercrm/data/CRMEntity.php::checkFileAccessForInclusion::57<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/Utils.php::getInstance::214<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerCRMObjectMeta.php::vtws_getModuleInstance::42<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerModuleOperation.php::__construct::31<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/VtigerModuleOperation.php::getMetaInstance::19<br>
+/var/www/vtigercrm/vtigercrm/include/Webservices/Utils.php::__construct::462<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/QueryGenerator.php::vtws_getModuleHandlerFromName::96<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/QueryGenerator.php::getMeta::72<br>
+/var/www/vtigercrm/vtigercrm/include/QueryGenerator/EnhancedQueryGenerator.php::__construct::16<br>
+/var/www/vtigercrm/vtigercrm/modules/Vtiger/models/ListView.php::__construct::373<br>
+/var/www/vtigercrm/vtigercrm/modules/Vtiger/views/List.php::getInstance::57<br>
+/var/www/vtigercrm/vtigercrm/includes/main/WebUI.php::preProcess::76<br>
+/var/www/vtigercrm/vtigercrm/includes/main/WebUI.php::triggerPreProcess::214<br>
+/var/www/vtigercrm/vtigercrm/index.php::process::26<br>
+

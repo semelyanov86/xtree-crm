@@ -1,0 +1,14 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+}
+.main-container .module-nav {
+    width:auto;
+    position:relative;
+}
+.main-container .settingsPageDiv {
+    padding-left:0;
+}
+.main-container .module-nav {
+    height:auto;
+}

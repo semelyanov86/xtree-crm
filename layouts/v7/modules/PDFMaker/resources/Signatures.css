@@ -1,0 +1,11 @@
+#SignaturesContainer {
+    height: calc(100vh - 160px);
+    overflow: auto;
+}
+#SignaturesContainer .container-edit {
+    margin: 0;
+    max-width: 1000px;
+}
+#SignaturesContainer img {
+    max-height: 100px;
+}

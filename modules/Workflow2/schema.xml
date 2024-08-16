@@ -1,0 +1,116 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_wfp_blocks</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wfp_blocks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `workflow_id` smallint(5) unsigned NOT NULL,
+  `active` tinyint(3) unsigned NOT NULL,
+  `text` varchar(128) NOT NULL,
+  `type` varchar(32) NOT NULL,
+  `x` mediumint(9) NOT NULL,
+  `y` mediumint(9) NOT NULL,
+  `settings` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+	]]></sql>
+		</table>
+		<table>
+			<name>vtiger_wfp_connections</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wfp_connections` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deleted` tinyint(3) unsigned NOT NULL,
+  `workflow_id` int(11) NOT NULL,
+  `source_mode` enum('block','person') NOT NULL,
+  `source_id` smallint(6) NOT NULL,
+  `source_key` varchar(32) NOT NULL,
+  `destination_id` smallint(6) NOT NULL,
+  `destination_key` varchar(32) NOT NULL,
+  `last_change` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_changed_userid` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `source_mode` (`source_mode`,`source_id`,`source_key`,`destination_id`,`destination_key`),
+  KEY `source` (`source_mode`,`source_id`,`source_key`),
+  KEY `destination_id` (`destination_id`,`destination_key`),
+  KEY `workflow_id` (`workflow_id`,`deleted`)
+) ENGINE=InnoDB;
+	]]></sql>
+		</table>
+		<table>
+			<name>vtiger_wfp_objects</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wfp_objects` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `workflow_id` smallint(5) unsigned NOT NULL,
+  `x` mediumint(8) NOT NULL,
+  `y` mediumint(8) NOT NULL,
+  `module_name` varchar(32) NOT NULL,
+  `crmid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `workflow_id` (`workflow_id`)
+) ENGINE=InnoDB ;
+	]]></sql>
+		</table>
+		<table>
+			<name>vtiger_wf_log</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wf_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `workflow_id` smallint(5) unsigned NOT NULL,
+  `execID` varchar(32) NOT NULL,
+  `blockID` mediumint(8) unsigned NOT NULL,
+  `lastBlockID` mediumint(8) unsigned NOT NULL,
+  `lastBlockOutput` varchar(16) NOT NULL,
+  `crmid` int(10) unsigned NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `durationms` int(11) unsigned NOT NULL,
+  `data` BLOB NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `crmid` (`crmid`,`workflow_id`,`blockID`)
+) ENGINE=InnoDB;
+	]]></sql>
+		</table>
+		<table>
+			<name>vtiger_wf_queue</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wf_queue` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `locked` tinyint(4) NOT NULL,
+  `crmid` int(10) unsigned NOT NULL,
+  `workflow_id` int(10) unsigned NOT NULL,
+  `execID` varchar(32) NOT NULL,
+  `environment` TEXT NOT NULL,
+  `execution_user` mediumint(9) NOT NULL,
+  `block_id` int(10) unsigned NOT NULL,
+  `checkMode` enum('dynamic','static') NOT NULL,
+  `nextStepTime` datetime NOT NULL,
+  `nextStepField` varchar(64) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `crmid` (`crmid`,`workflow_id`,`block_id`),
+  KEY `nextStep` (`nextStepField`)
+) ENGINE=InnoDB;
+	]]></sql>
+		</table>
+		<table>
+			<name>vtiger_wf_settings</name>
+			<sql><![CDATA[
+CREATE TABLE IF NOT EXISTS `vtiger_wf_settings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `active` tinyint(4) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `module_name` varchar(32) NOT NULL,
+  `execution_user` smallint(5) unsigned NOT NULL,
+  `condition` tinyint(4) NOT NULL DEFAULT '2',
+  `simultan` tinyint(4) NOT NULL DEFAULT '2',
+  `revision` int(10) unsigned NOT NULL DEFAULT '1',
+  `modify` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+	]]></sql>
+		</table>
+	</tables>
+</schema>

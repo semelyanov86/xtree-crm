@@ -1,0 +1,9 @@
+<?php
+
+
+//This is the access privilege file
+$is_admin=true;
+
+$user_info=array('user_name'=>'admin','is_admin'=>'on','user_password'=>'$2y$10$bHhqfUavofrgajB6wxr6TeGRpFA1og8G2DNFXOCEtEITYDFJOCi2e','confirm_password'=>'$2y$10$RpxoBUBNZ4oi2LXmiyZSruUjOZSyd/ZGIbfLN9MNtmnqkw1PFvBAy','first_name'=>'Sergey','last_name'=>'Emelyanov','roleid'=>'H2','email1'=>'se@sergeyem.ru','status'=>'Active','activity_view'=>'This Week','lead_view'=>'Today','hour_format'=>'24','end_hour'=>'23:00','start_hour'=>'08:00','is_owner'=>'1','title'=>'CEO','phone_work'=>'','department'=>'','phone_mobile'=>'','reports_to_id'=>'','phone_other'=>'','email2'=>'','phone_fax'=>'','secondaryemail'=>'','phone_home'=>'','date_format'=>'dd-mm-yyyy','signature'=>'','description'=>'','address_street'=>'','address_city'=>'Hamburg','address_state'=>'','address_postalcode'=>'22761','address_country'=>'Germany','accesskey'=>'z65jZTXT3Puafi5G','time_zone'=>'Europe/Amsterdam','currency_id'=>'2','currency_grouping_pattern'=>'123,456,789','currency_decimal_separator'=>'.','currency_grouping_separator'=>',','currency_symbol_placement'=>'1.0$','imagename'=>'','internal_mailer'=>'1','theme'=>'alphagrey','language'=>'en_us','reminder_interval'=>'1 Minute','phone_crm_extension'=>'','no_of_currency_decimals'=>'2','truncate_trailing_zeros'=>'1','dayoftheweek'=>'Monday','callduration'=>'5','othereventduration'=>'5','calendarsharedtype'=>'public','default_record_view'=>'Summary','leftpanelhide'=>'0','rowheight'=>'','defaulteventstatus'=>'Planned','defaultactivitytype'=>'Call','hidecompletedevents'=>'0','defaultcalendarview'=>'MyCalendar','defaultlandingpage'=>'Home','userlabel'=>'Sergey Emelyanov','currency_name'=>'Euro','currency_code'=>'EUR','currency_symbol'=>'&#8364;','conv_rate'=>'1.00000','record_id'=>'','id'=>'1');
+
+?>

@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vte_widgets</name>
+			<sql><![CDATA[CREATE TABLE `vte_widgets` (
+				`id` int(19) NOT NULL AUTO_INCREMENT,
+                  `tabid` int(19) DEFAULT NULL,
+                  `type` varchar(30) DEFAULT NULL,
+                  `label` varchar(100) DEFAULT NULL,
+                  `wcol` tinyint(1) DEFAULT '1',
+                  `sequence` tinyint(2) DEFAULT NULL,
+                  `nomargin` tinyint(1) DEFAULT '0',
+                  `data` text,
+				  `advanced_query` text,
+				  `preview_email` tinyint(1) DEFAULT NULL,
+                  `isactive` int(1) DEFAULT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `tabid` (`tabid`)
+				)]]></sql>
+		</table>
+		<table>
+			<name>vte_default_widgets</name>
+			<sql><![CDATA[CREATE TABLE `vte_default_widgets` (
+               `id` int(19) NOT NULL AUTO_INCREMENT,
+              `tabid` int(11) NOT NULL,
+              `all_widget` tinyint(1) DEFAULT NULL,
+              `comments_widget` tinyint(1) DEFAULT NULL,
+              `activities_widget` tinyint(1) DEFAULT NULL,
+              `update_widget` tinyint(1) DEFAULT NULL,
+              `document_widget` tinyint(1) DEFAULT NULL,
+              `helpdesk_widget` tinyint(1) DEFAULT NULL,
+              `milestones_widget` tinyint(1) DEFAULT NULL,
+              `tasks_widget` tinyint(1) DEFAULT NULL,
+              `contact_widget` tinyint(1) DEFAULT NULL,
+              `product_widget` tinyint(1) DEFAULT NULL,
+                     PRIMARY KEY (`id`),
+                  KEY `tabid` (`tabid`)
+				)]]></sql>
+		</table>
+		<table>
+			<name>vte_modules</name>
+			<sql><![CDATA[CREATE TABLE `vte_modules` (
+				`module`  varchar(50) NOT NULL ,
+				`valid`  int(1) NULL ,
+				PRIMARY KEY (`module`));]]></sql>
+		</table>
+	</tables>
+</schema>

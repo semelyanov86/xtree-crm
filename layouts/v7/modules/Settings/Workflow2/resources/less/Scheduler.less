@@ -1,0 +1,24 @@
+.WorkflowSchedulerContainer {
+  .NextExecutionTimer {
+    font-weight:bold;
+  }
+  .cronRow {
+    td {
+        padding:8px 3px !important;
+    }
+  }
+
+  .FirstSchedulerRow.active td, .SecondSchedulerRow.active td {
+    background-color:#c5ffd2;
+  }
+  .FirstSchedulerRow.inactive td {
+    background-color:#ffd8e4;
+  }
+  .FirstSchedulerRow.noworkflow td {
+    background-color:#e6e6e6 !important;
+  }
+
+  .SecondSchedulerRow.inactive {
+    display:none;
+  }
+}

@@ -1,0 +1,2 @@
+Add - Implement function wf_multipicklist_add
+Add - Implement function wf_multipicklist_remove

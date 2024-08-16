@@ -1,0 +1,204 @@
+.ConditionContainer > span:first-of-type:nth-last-of-type(1),
+.ConditionContainer > span:first-of-type:nth-last-of-type(1) ~ span {
+  width:100%;
+  /*min-width:400px;*/
+  display:block;
+}
+.ConditionContainer > span:first-of-type:nth-last-of-type(2),
+.ConditionContainer > span:first-of-type:nth-last-of-type(2) ~ span {
+  /*min-width:200px;*/
+  display:inline-block;
+}
+
+.ConditionalRecord {
+  select {
+    margin-bottom:1px;
+    width:100%;
+    height:29px;
+  }
+
+  padding:2px 3px;
+
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  box-sizing: border-box;
+
+}
+
+.ConditionalRecord[data-columns="1"] {
+  .select2-container.ConditionValue {
+    width:100%;
+  }
+}
+
+
+.ConditionalRecord[data-columns="0"] .ConditionMode,
+.ConditionalRecord[data-columns="0"] .ConditionContainer {
+  display:none;
+}
+
+.ConditionalGroupHover  {
+  border:2px solid red !important;
+}
+.ConditionalRecordHover  {
+  background-color:#eee;
+}
+.ConditionalGroup[data-parentgroup="root"] {
+  margin-left: 0;
+}
+.ConditionalGroup  {
+  border:2px solid #777;
+  padding:3px 3px 5px 3px;
+  background-color:#eee;
+  margin:1px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+  /* box-shadow:1px 1px 2px #777777; */
+  border-radius:2px;
+}
+.ConditionOperation {
+  flex:0 0 100px;
+  box-sizing: border-box;
+}
+.joinSelector {
+  margin-bottom:5px;
+}
+.ConditionField {
+  flex:0 0 30%;
+  box-sizing: border-box;
+}
+.ConditionNot {
+  flex:0 0 60px;
+  margin-left:3px;
+  box-sizing: border-box;
+}
+.ConditionMode {
+  flex:0 0 80px;
+  box-sizing: border-box;
+}
+.ConditionValue.select {
+  width:200px;
+}
+
+.ConditionMode,
+.ConditionValue.select,
+.ConditionNot,
+.ConditionOperation
+{
+  font-size:11px;
+  padding:2px;
+  margin-right:3px;
+  vertical-align:top;
+}
+.ConditionValue.text {
+  /* height:16px; */
+  vertical-align:top;
+  width:300px;
+}
+.ConditionCollapseJoins .conditionFooterToolbar .ConditionalSubJoin {
+  display:inline !important;
+  line-height:26px;
+}
+.ConditionCollapseJoins .ConditionalSubJoin {
+  display:none !important;
+}
+.ConditionExpandJoins .ConditionalMasterJoin {
+  display:none !important;
+}
+.ConditionJoinCollapse {
+  //display:inline;
+}
+.ConditionalJoin select {
+  width:80px;
+  font-size:11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  padding: 0;
+  height: 20px;
+  margin: 0px 0 2px 40px;
+  font-weight: bold;
+}
+img.ConditionRemove {
+  margin-bottom:-4px;
+  margin-right:4px;
+  vertical-align:top;
+  margin-top:5px;
+  cursor:pointer;
+  width:16px;
+  height:16px;
+}
+span.group_remove {
+  float:right;
+}
+.ConditionContainer {
+  flex:2 0 30%;
+  box-sizing: border-box;
+  display:flex;
+}
+.NewConditionalRecord, .NewConditionalGroup  {
+  display:none;
+}
+.ConditionContainer span {
+  flex-grow:1;
+
+  .select2-container {
+    width:99%;
+
+    &.select2-container-multi {
+      .select2-search-field input {
+        height:27px;
+        padding:3px 8px;
+      }
+
+      .select2-choices {
+        min-height:25px;
+      }
+
+      .select2-search-choice {
+        margin-top: 3px;
+        margin-bottom: 2px;
+
+        font-weight:bold;
+      }
+    }
+  }
+}
+
+.select2-container-multi {
+  .select2-search-choice {
+    background-color:#eee !important;
+    font-weight:bold;
+  }
+}
+
+.ConditionContainer span.short select,
+.ConditionContainer span.short input {
+  width:140px;
+}
+.ConditionControlPanel {
+  background-color:#eeeeee;
+  padding:5px;
+  border-top:2px solid #777;
+  border-right:2px solid #777;
+  border-left:2px solid #777;
+  border-bottom:0px solid #777;
+}
+.ConditionControlPanel label {
+  display:inline-block;
+  margin-bottom:0;
+}
+.ConditionalGroup[data-recordindex="0"] {
+  margin-left:0;
+  margin-right:0;
+  border-bottom:2px solid #777;
+  border-radius:0;
+}
+.ConditionContainer .condLabel {
+  display:inline-block;
+  margin-left:10px;
+  margin-right:10px;
+  line-height:25px;
+}
