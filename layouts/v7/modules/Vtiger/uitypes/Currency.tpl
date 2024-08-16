@@ -24,6 +24,9 @@
     {if php7_count($FIELD_INFO['validator'])}
         data-specific-rules='{ZEND_JSON::encode($FIELD_INFO["validator"])}'
     {/if}
+            {if $FIELD_MODEL->getId() == 112}
+                disabled
+                {/if}
     />
 </div>
 {else if ($FIELD_MODEL->get('uitype') eq '72') && ($FIELD_NAME eq 'unit_price')}
