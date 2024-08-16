@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>fieldautofill_mappings</name>
+			<sql><![CDATA[
+				CREATE TABLE `fieldautofill_mappings` (
+				`id`  int(11) NOT NULL AUTO_INCREMENT ,
+				`key`  varchar(250) NULL ,
+				`primary`  varchar(250) NULL ,
+				`secondary`  varchar(250) NULL ,
+				`show_popup`  int(1) NULL,
+				PRIMARY KEY (`id`)
+				);
+			]]></sql>
+		</table>
+		<table>
+			<name>vte_modules</name>
+			<sql><![CDATA[CREATE TABLE `vte_modules` (
+                `module`  varchar(50) NOT NULL ,
+                `valid`  int(1) NULL ,
+                PRIMARY KEY (`module`));]]></sql>
+		</table>
+	</tables>
+</schema>
