@@ -45,7 +45,7 @@ For Conversions module we have custom handler installed. If you want to setup wo
 It is useful also add a new relation between Conversions and Invoice here: `index.php?module=ModuleLinkCreator&parent=Settings&view=IndexRelatedFields`. Then you can see list of converted leads in every invoice. Then create a workflow when invoice_id is not empty and cf_invoice_id is empty, then run Relate to Invoice handler.
 
 ## Deployment
-Just push to master to run deployment process.
+Just push to master to run deployment process. It will also execute migrations.
 
 
 ## Acknowledgements
