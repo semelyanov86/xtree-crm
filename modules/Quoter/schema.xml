@@ -1,0 +1,96 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>quoter_settings</name>
+			<sql><![CDATA[CREATE TABLE `quoter_settings` (
+				  `module` varchar(100) NOT NULL,
+				  `item_name` text NOT NULL,
+				  `quantity` text NOT NULL,
+				  `listprice` text NOT NULL,
+				  `total` text NOT NULL,
+				  `net_price` text NOT NULL,
+				  `comment` text NOT NULL,
+				  `discount_amount` text NOT NULL,
+				  `discount_percent` text NOT NULL,
+				  `total_fields` text,
+				  PRIMARY KEY (`module`)
+				);]]></sql>
+		</table>
+		<table>
+			<name>quoter_settings</name>
+			<sql><![CDATA[DROP TABLE `quoter_settings`;]]></sql>
+		</table>
+		<table>
+			<name>quoter_quotes_settings</name>
+			<sql><![CDATA[CREATE TABLE `quoter_quotes_settings` (
+				  `module` varchar(100) NOT NULL,
+				  `item_name` text NOT NULL,
+				  `quantity` text NOT NULL,
+				  `listprice` text NOT NULL,
+				  `total` text NOT NULL,
+				  `net_price` text NOT NULL,
+				  `comment` text NOT NULL,
+				  `discount_amount` text NOT NULL,
+				  `discount_percent` text NOT NULL,
+				  `total_fields` text,
+				  PRIMARY KEY (`module`)
+				);]]></sql>
+		</table>
+		<table>
+			<name>quoter_invoice_settings</name>
+			<sql><![CDATA[CREATE TABLE `quoter_invoice_settings` (
+				  `module` varchar(100) NOT NULL,
+				  `item_name` text NOT NULL,
+				  `quantity` text NOT NULL,
+				  `listprice` text NOT NULL,
+				  `total` text NOT NULL,
+				  `net_price` text NOT NULL,
+				  `comment` text NOT NULL,
+				  `discount_amount` text NOT NULL,
+				  `discount_percent` text NOT NULL,
+				  `total_fields` text,
+				  PRIMARY KEY (`module`)
+				);]]></sql>
+		</table>
+		<table>
+			<name>quoter_salesorder_settings</name>
+			<sql><![CDATA[CREATE TABLE `quoter_salesorder_settings` (
+				  `module` varchar(100) NOT NULL,
+				  `item_name` text NOT NULL,
+				  `quantity` text NOT NULL,
+				  `listprice` text NOT NULL,
+				  `total` text NOT NULL,
+				  `net_price` text NOT NULL,
+				  `comment` text NOT NULL,
+				  `discount_amount` text NOT NULL,
+				  `discount_percent` text NOT NULL,
+				  `total_fields` text,
+				  PRIMARY KEY (`module`)
+				);]]></sql>
+		</table>
+		<table>
+			<name>quoter_purchaseorder_settings</name>
+			<sql><![CDATA[CREATE TABLE `quoter_purchaseorder_settings` (
+				  `module` varchar(100) NOT NULL,
+				  `item_name` text NOT NULL,
+				  `quantity` text NOT NULL,
+				  `listprice` text NOT NULL,
+				  `total` text NOT NULL,
+				  `net_price` text NOT NULL,
+				  `comment` text NOT NULL,
+				  `discount_amount` text NOT NULL,
+				  `discount_percent` text NOT NULL,
+				  `total_fields` text,
+				  PRIMARY KEY (`module`)
+				);]]></sql>
+		</table>
+		<table>
+			<name>vte_modules</name>
+			<sql><![CDATA[CREATE TABLE `vte_modules` (
+                `module`  varchar(50) NOT NULL ,
+                `valid`  int(1) NULL ,
+                PRIMARY KEY (`module`));]]></sql>
+		</table>
+	</tables>
+</schema>

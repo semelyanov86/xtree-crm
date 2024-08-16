@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_vteitems</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_vteitems` (
+              `vteitemid` int(19) NOT NULL,
+              `vteitems_no` varchar(100) NOT NULL,
+              `related_to` int(19) NOT NULL,
+              `productid` int(19) NOT NULL,
+              `sequence` int(19) DEFAULT NULL,
+              `quantity` decimal(25,3) NOT NULL,
+              `listprice` decimal(27,8) DEFAULT NULL,
+              `discount_percent` decimal(7,3) DEFAULT NULL,
+              `discount_amount` decimal(27,8) DEFAULT NULL,
+              `comment` text,
+              `tax1` decimal(7,3) DEFAULT NULL,
+              `tax2` decimal(7,3) DEFAULT NULL,
+              `tax3` decimal(7,3) DEFAULT NULL,
+              `image` varchar(2) DEFAULT NULL,
+              `purchase_cost` decimal(27,8) DEFAULT NULL,
+              `margin` decimal(27,8) DEFAULT NULL,
+              `total` decimal(27,8) DEFAULT NULL,
+              `net_price` decimal(27,8) DEFAULT NULL,
+              `level` tinyint(1) NOT NULL DEFAULT 1,
+              `section_value` text DEFAULT NULL,
+              `tax_total` decimal(7,3) DEFAULT NULL,
+              `running_item_value` text DEFAULT NULL,
+			  
+              PRIMARY KEY  (`vteitemid`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_vteitemscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_vteitemscf` (
+                  `vteitemid` int(11) NOT NULL,
+                  PRIMARY KEY  (`vteitemid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_vteitems</name>
+			<sql><![CDATA[ALTER TABLE `vtiger_vteitems` ADD INDEX `related_to_index` (`related_to`) USING BTREE ;]]></sql>
+		</table>
+		<table>
+			<name>vtiger_vteitems</name>
+			<sql><![CDATA[ALTER TABLE `vtiger_vteitems` ADD INDEX `productid_index` (`productid`) USING BTREE ;]]></sql>
+		</table>
+	</tables>
+</schema>
