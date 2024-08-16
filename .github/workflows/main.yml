@@ -49,9 +49,9 @@ jobs:
 
       - name: Permission setup
         run: |
-          chmod -R 777 cache test/vtlib
-          chmod a+rw config.inc.php
-          chmod 755 cron/vtiger_backup.sh
+          sudo chmod -R 777 cache test/vtlib
+          sudo chmod a+rw config.inc.php
+          sudo chmod 755 cron/vtiger_backup.sh
 
       - name: Clear old build
         uses: appleboy/ssh-action@master
@@ -61,17 +61,16 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
-            rm -rf /var/www/vtigercrm/vtigercrm_previous
-            mv /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm_previous
-            rm /var/www/vtigercrm/vtigercrm
-            ln -snf /var/www/vtigercrm/vtigercrm_previous /var/www/vtigercrm/vtigercrm
+            sudo rm -rf /var/www/vtigercrm/vtigercrm_previous
+            sudo mv /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm_previous
+            sudo rm /var/www/vtigercrm/vtigercrm
+            sudo ln -snf /var/www/vtigercrm/vtigercrm_previous /var/www/vtigercrm/vtigercrm
 
       - name: Copy files via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.PASSWORD }}
           port: 22
           key: ${{ secrets.DEPLOY_KEY }}
           source: "./"
@@ -85,20 +84,20 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
           script: |
-            cp /var/www/vtigercrm/vtigercrm_previous/.env /var/www/vtigercrm/vtigercrm_new/.env
-            cd /var/www/vtigercrm/vtigercrm_new
-            mv /var/www/vtigercrm/vtigercrm_previous/storage /var/www/vtigercrm/vtigercrm_new/storage
-            mv /var/www/vtigercrm/vtigercrm_previous/logs /var/www/vtigercrm/vtigercrm_new/logs
-            mv /var/www/vtigercrm/vtigercrm_previous/user_privileges /var/www/vtigercrm/vtigercrm_new/user_privileges
-            cp /var/www/vtigercrm/vtigercrm_previous/tabdata.php /var/www/vtigercrm/vtigercrm_new/tabdata.php
-            cp /var/www/vtigercrm/vtigercrm_previous/parent_tabdata.php /var/www/vtigercrm/vtigercrm_new/parent_tabdata.php
-            mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c
-            mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c/v7
-            chmod -R 777 /var/www/vtigercrm/vtigercrm_new/test/templates_c
-            chown -R www-data /var/www/vtigercrm/vtigercrm_new
-            chgrp -R www-data /var/www/vtigercrm/vtigercrm_new
-            rm /var/www/vtigercrm/vtigercrm
-            ln -snf /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm
-            rm -rf /var/www/vtigercrm/vtigercrm_previous
-            chmod -R 777 /var/www/vtigercrm/vtigercrm_new/user_privileges
+            sudo cp /var/www/vtigercrm/vtigercrm_previous/.env /var/www/vtigercrm/vtigercrm_new/.env
+            sudo cd /var/www/vtigercrm/vtigercrm_new
+            sudo mv /var/www/vtigercrm/vtigercrm_previous/storage /var/www/vtigercrm/vtigercrm_new/storage
+            sudo mv /var/www/vtigercrm/vtigercrm_previous/logs /var/www/vtigercrm/vtigercrm_new/logs
+            sudo mv /var/www/vtigercrm/vtigercrm_previous/user_privileges /var/www/vtigercrm/vtigercrm_new/user_privileges
+            sudo cp /var/www/vtigercrm/vtigercrm_previous/tabdata.php /var/www/vtigercrm/vtigercrm_new/tabdata.php
+            sudo cp /var/www/vtigercrm/vtigercrm_previous/parent_tabdata.php /var/www/vtigercrm/vtigercrm_new/parent_tabdata.php
+            sudo mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c
+            sudo mkdir /var/www/vtigercrm/vtigercrm_new/test/templates_c/v7
+            sudo chmod -R 777 /var/www/vtigercrm/vtigercrm_new/test/templates_c
+            sudo chown -R www-data /var/www/vtigercrm/vtigercrm_new
+            sudo chgrp -R www-data /var/www/vtigercrm/vtigercrm_new
+            sudo rm /var/www/vtigercrm/vtigercrm
+            sudo ln -snf /var/www/vtigercrm/vtigercrm_new /var/www/vtigercrm/vtigercrm
+            sudo rm -rf /var/www/vtigercrm/vtigercrm_previous
+            sudo chmod -R 777 /var/www/vtigercrm/vtigercrm_new/user_privileges
             task migrate
