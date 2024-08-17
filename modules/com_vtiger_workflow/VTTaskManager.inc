@@ -22,11 +22,11 @@
 		 * When a new task is saved for the first time a field is added to it called
 		 * id that stores the task id used in the database.
 		 *
-		 * @param $summary A summary of the task instance.
-		 * @param $task The task instance to save.
-		 * @return The id of the task
+		 * @param VTUpdateFieldsTask $task The task instance to save.
+		 * @return int The id of the task
 		 */
 		public function saveTask($task){
+			/** @var PearDatabase $adb */
 			$adb = $this->adb;
 			if(is_numeric($task->id)){//How do I check whether a member exists in php?
 				$taskId = $task->id;
@@ -90,6 +90,7 @@
 			$result = $adb->pquery("select task from com_vtiger_workflowtasks
 									where workflow_id=?",
 				array($workflowId));
+
 			return $this->getTasksForResult($result);
 		}
 
@@ -117,10 +118,11 @@
 			$tasks = array();
 			foreach($it as $row){
 				$text = $row->task;
-
-				$this->requireTask(self::taskName($text));
+				// Here you can check, what type of serialized task you have got from DB.
+				$this->requireTask($this->taskName($text));
 				$tasks[] = unserialize($text);
 			}
+
 			return $tasks;
 		}
 
