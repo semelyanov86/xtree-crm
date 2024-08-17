@@ -422,4 +422,11 @@ class Potentials_Module_Model extends Vtiger_Module_Model
     {
         return ['Import', 'Export', 'DuplicatesHandling'];
     }
+
+    protected function isCreationAllowed(): bool
+    {
+        $service = new Potentials_SaveChecker_Service();
+
+        return $service->canBeCreated();
+    }
 }

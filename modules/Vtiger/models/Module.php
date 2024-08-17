@@ -1429,12 +1429,14 @@ class Vtiger_Module_Model extends Vtiger_Module
                     'linkicon' => 'fa-plus',
                 ];
             } else {
-                $basicLinks[] = [
-                    'linktype' => 'BASIC',
-                    'linklabel' => 'LBL_ADD_RECORD',
-                    'linkurl' => $this->getCreateRecordUrl(),
-                    'linkicon' => 'fa-plus',
-                ];
+                if ($this->isCreationAllowed()) {
+                    $basicLinks[] = [
+                        'linktype' => 'BASIC',
+                        'linklabel' => 'LBL_ADD_RECORD',
+                        'linkurl' => $this->getCreateRecordUrl(),
+                        'linkicon' => 'fa-plus',
+                    ];
+                }
             }
             $importPermission = Users_Privileges_Model::isPermitted($this->getName(), 'Import');
             if ($importPermission && $createPermission) {
@@ -2010,7 +2012,7 @@ class Vtiger_Module_Model extends Vtiger_Module
             return true;
         }
 
-return false;
+        return false;
     }
 
     /**
@@ -2252,5 +2254,10 @@ return false;
         }
 
         return $moduleIcon;
+    }
+
+    protected function isCreationAllowed(): bool
+    {
+        return true;
     }
 }

@@ -50,8 +50,8 @@ class Vtiger_Index_View extends Vtiger_Basic_View
 
     /**
      * Setting module related Information to $viewer (for Vtiger7).
-     * @param type $request
-     * @param type $moduleModel
+     * @param Vtiger_Request $request
+     * @param Vtiger_Module_Model $moduleModel
      */
     public function setModuleInfo($request, $moduleModel)
     {

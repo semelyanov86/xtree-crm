@@ -167,8 +167,8 @@ class Vtiger_ListView_Model extends Vtiger_Base_Model
 
     /**
      * Function to get the list of listview links for the module.
-     * @param <Array> $linkParams
-     * @return <Array> - Associate array of Link Type to List of Vtiger_Link_Model instances
+     * @param array{LISTVIEWBASIC: Vtiger_Link_Model[], LISTVIEW: Vtiger_Link_Model[], LISTVIEWSETTING: Vtiger_Link_Model[]} $linkParams
+     * @return array{LISTVIEWBASIC: Vtiger_Link_Model[], LISTVIEW: Vtiger_Link_Model[], LISTVIEWSETTING: Vtiger_Link_Model[]} - Associate array of Link Type to List of Vtiger_Link_Model instances
      */
     public function getListViewLinks($linkParams)
     {
@@ -545,7 +545,7 @@ class Vtiger_ListView_Model extends Vtiger_Base_Model
         $basicLinks = [];
         $moduleModel = $this->getModule();
         $createPermission = Users_Privileges_Model::isPermitted($moduleModel->getName(), 'CreateView');
-        if ($createPermission) {
+        if ($createPermission && $this->isCreationAllowed()) {
             $basicLinks[] = [
                 'linktype' => 'LISTVIEWBASIC',
                 'linklabel' => 'LBL_ADD_RECORD',
@@ -584,5 +584,10 @@ class Vtiger_ListView_Model extends Vtiger_Base_Model
         }
 
         return false;
+    }
+
+    protected function isCreationAllowed(): bool
+    {
+        return true;
     }
 }
