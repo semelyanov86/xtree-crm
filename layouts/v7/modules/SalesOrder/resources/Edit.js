@@ -48,7 +48,7 @@ Inventory_Edit_Js("SalesOrder_Edit_Js",{},{
 		var thisInstance = this;
 		var form = this.getForm();
 		var enableRecurrenceField = form.find('[name="enable_recurring"]');
-		var fieldNamesForValidation = new Array('recurring_frequency','start_period','end_period','payment_duration','invoicestatus');
+		var fieldNamesForValidation = new Array('recurring_frequency','start_period','payment_duration','invoicestatus');
         var selectors = new Array();
         for(var index in fieldNamesForValidation) {
             selectors.push('[name="'+fieldNamesForValidation[index]+'"]');
