@@ -14,7 +14,10 @@ final class Invoice_CheckPermission_Service
             return true;
         }
         $user = Users_Record_Model::getCurrentUserModel();
-        if (!$user && $user->isAdminUser()) {
+        if (!$user) {
+            return true;
+        }
+        if ($user->isAdminUser()) {
             return true;
         }
         $invoiceModel = Invoice_Record_Model::getInstanceById($this->invoiceId);
