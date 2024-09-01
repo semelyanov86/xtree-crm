@@ -118,8 +118,8 @@ class VTEPayments_Ajax_Action extends Vtiger_IndexAjax_View
         $invModel = Vtiger_Record_Model::getInstanceById($invoiceId, 'Invoice');
         $split_amount = [25 / 100, 33 / 100, 50 / 100, 1];
         foreach ($split_amount as $_amount) {
-            $_total_tooltip = new CurrencyField($_amount * $invModel->get('hdnGrandTotal'));
-            $_balance_tooltip = new CurrencyField($_amount * $invModel->get('balance'));
+            $_total_tooltip = new CurrencyField($_amount * (float) $invModel->get('hdnGrandTotal'));
+            $_balance_tooltip = new CurrencyField($_amount * (float) $invModel->get('balance'));
             $amount_tooltip[$_amount * 100 . '%'] = ['total' => $_total_tooltip->getDisplayValue(), 'balance' => $_balance_tooltip->getDisplayValue()];
         }
         $currencyInfo = getInventoryCurrencyInfo('Invoice', $invoiceId);
@@ -195,11 +195,13 @@ class VTEPayments_Ajax_Action extends Vtiger_IndexAjax_View
             $accountid = $adb->query_result($res, 0, 'organization');
             $contactid = $adb->query_result($res, 0, 'contact');
             $invoiceid = $adb->query_result($res, 0, 'invoice');
+            $potentialId = $adb->query_result($res, 0, 'potential');
         }
         $obj_credit = CRMEntity::getInstance('VTEPaymentCredits');
         $obj_credit->column_fields['invoiceid'] = $invoiceid;
         $obj_credit->column_fields['accountid'] = $accountid;
         $obj_credit->column_fields['contactid'] = $contactid;
+        $obj_credit->column_fields['potential'] = $potentialId;
         $obj_credit->column_fields['vtepaymentid'] = $credit_paymentid;
         $obj_credit->column_fields['invoiceid2'] = $invoiceid2;
         $obj_credit->column_fields['vtepaymentid2'] = $current_paymentid;

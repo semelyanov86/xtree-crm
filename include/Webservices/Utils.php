@@ -1461,3 +1461,13 @@ function vtws_getAttachmentRecordId($attachmentId)
 
     return $crmid;
 }
+
+/**
+ * Get the CRM Entity ID by the Web Service entity ID.
+ */
+function vtws_getCRMEntityId(string $elementid): int
+{
+    [$typeId, $id] = vtws_getIdComponents($elementid);
+
+    return (int) $id;
+}

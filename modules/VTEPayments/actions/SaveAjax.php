@@ -20,6 +20,7 @@ class VTEPayments_SaveAjax_Action extends Vtiger_SaveAjax_Action
     {
         $moduleName = $request->getModule();
         $recordId = $request->get('record');
+        /** @var VTEPayments_Module_Model $moduleModel */
         $moduleModel = Vtiger_Module_Model::getInstance($moduleName);
         if (!empty($recordId)) {
             $recordModel = Vtiger_Record_Model::getInstanceById($recordId, $moduleName);

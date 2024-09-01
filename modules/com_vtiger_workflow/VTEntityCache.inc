@@ -59,7 +59,7 @@ class VTWorkflowEntity{
 	/**
 	 * Get the entity id.
 	 *
-	 * @return The entity id.
+	 * @return string entity id.
 	 */
 	function getId(){
 		return $this->data['id'];
