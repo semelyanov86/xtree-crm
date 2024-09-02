@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @param VTWorkflowEntity $ws_entity
  * @return bool
  */
-function addPotentialAmount($ws_entity)
+function subtractPotentialAmount($ws_entity)
 {
     $ws_id = $ws_entity->getId();
     $module = $ws_entity->getModuleName();
@@ -19,21 +19,24 @@ function addPotentialAmount($ws_entity)
         return false;
     }
 
-    $paymentInstance = Vtiger_Record_Model::getInstanceById($crmid);
-    if (!$paymentInstance) {
+    $invInstance = Vtiger_Record_Model::getInstanceById($crmid);
+    if (!$invInstance) {
         return false;
     }
-    $potentialId = $paymentInstance->get('potential');
+
+    $potentialId = $invInstance->get('potential_id');
     if (!$potentialId) {
         return false;
     }
     $potentialInstance = Vtiger_Record_Model::getInstanceById($potentialId);
     if ($potentialInstance) {
         $oldAmount = (float) $potentialInstance->get('amount');
-        $potentialInstance->set('amount', $oldAmount + (float) $paymentInstance->get('amount_paid'));
+        $cont = $invInstance->get('amount_paid');
+        $potentialInstance->set('amount', $oldAmount - (float) $invInstance->get('hdnGrandTotal'));
         $potentialInstance->set('mode', 'edit');
         $potentialInstance->save();
     }
 
     return true;
 }
+
